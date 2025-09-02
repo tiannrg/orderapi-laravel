@@ -1,7 +1,12 @@
+
 <?php
 
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\CausalController;
-use App\Models\Causal;
+use App\Http\Controllers\ObservationController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\TechnicianController;
+use App\Http\Controllers\typeActivityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,8 +21,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// {{-- ----------- CAUSAL ------------- --}}
 Route::apiResource('causal', CausalController::class);
+
+// {{-- ----------- TECHNICIAN ------------- --}}
+Route::apiResource('technician', TechnicianController::class);
+
+// {{-- ----------- OBSERVATION ------------- --}}
+Route::apiResource('observation', ObservationController::class);
+
+// {{-- ----------- TYPE_ACTIVITY ------------- --}}
+Route::apiResource('type_activity', typeActivityController::class);
+
+// {{-- ----------- ACTIVITY ------------- --}}
+Route::apiResource('activity', ActivityController::class);
+
+// {{-- ----------- ORDER ------------- --}}
+Route::apiResource('order', OrderController::class);
